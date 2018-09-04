@@ -1,0 +1,17 @@
+{
+  "name": "move-it-template-plug.dj",
+  "version": "0.0.1",
+  "description": "A new stylesheet replacement for Plug.dj updated with the new css classes.",
+  "main": "gulpfile.js",
+  "repository": "https://github.com/SrPhilippe/move-it-template-plug.dj.git",
+  "author": "SrPhilippe <philippehenrique@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-util": "^3.0.8",
+    "vinyl-ftp": "^0.6.1"
+  }
+}
