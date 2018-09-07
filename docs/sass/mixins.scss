@@ -8,7 +8,7 @@
 }
 
 @mixin back-style3 {
-    background: radial-gradient($blackAlphaDark 40%, $firstAlpha 249%);
+    background: radial-gradient($blackAlphaDark 40%, $firstAlpha 249%) !important;
     border: 1px solid $firstAlpha;
 }
 

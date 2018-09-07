@@ -1,0 +1,102 @@
+#user-rollover {
+    &.id-5394376 {
+
+        // BOT
+        .badge-box {
+            &:before {
+                top: -30px;
+                content: "Engenheiro";
+                color: #c7c7c7;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                padding-left: 25px;
+                font-size: 13px;
+                background-image: url(images/gear.png);
+                background-size: 20px 20px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    // CSS { FELUZ E AWAYSHIFT }
+    &.id-3839549,
+    &.id-1380997 {
+        .badge-box {
+            &:before {
+                top: -30px;
+                content: "Dev";
+                color: #0b9ddb;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                padding-left: 25px;
+                font-size: 13px;
+                background-image: url(images/css.png);
+                background-size: 20px 20px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    // SHADOWSLAYER
+    &.id-4080795 .badge-box {
+        &:before {
+            top: -30px;
+            content: "Dev";
+            color: #4d5db7;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            padding-left: 25px;
+            font-size: 13px;
+            background-image: url(images/php.png);
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    //DATABASE
+    &.id-3926149 .badge-box {
+        &:before {
+            top: -30px;
+            content: "Dev";
+            color: #f7df1e;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            padding-left: 25px;
+            font-size: 13px;
+            background-image: url(images/js.png);
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    // CAIPIRA
+    &.id-3575887 .badge-box {
+        &:before {
+            top: -30px;
+            content: "Dev";
+            color: #f7df1e;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            padding-left: 25px;
+            font-size: 13px;
+            background-image: url(images/js.png);
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+        }
+    }
+}

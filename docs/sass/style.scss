@@ -5,6 +5,7 @@ Started in: 8/23/2018
 
 */
 @import "mixins";
+@import "users";
 $highlight: #e3ad16;
 $highlightAlpha: hsla(44, 82%, 49%, 0.851);
 $highlightAlphaSuper: hsla(44, 82%, 49%, 0.267);
@@ -28,6 +29,10 @@ $darkAlphaDarker: rgba(darken($dark, 5%), .83);
 $darkAlphaMega: rgba(darken($dark, 15%), .75);
 $black: #000;
 $blackAlphaDark: rgba($black, .8);
+
+::selection {
+    background: $firstAlphaSuper;
+}
 
 ::-webkit-scrollbar {
     background: $darkDarker !important;
@@ -102,48 +107,80 @@ $blackAlphaDark: rgba($black, .8);
             border-color: $staff !important;
         }
     }
+}
 
-    .jspPane {
-        .cell {
-            background: $darkDarker;
-            border: 1px solid $firstAlphaSuper;
+#history-panel {
+    background: $dark !important;
+}
 
-            &:hover {
-                >.meta {
-                    @include back-style3;
+.nav-left.in-room {
+    &.shown:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-image: url(images/background-blur.png);
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.jspPane {
+    .list {
+        .row {
+            box-shadow: inset 0 0 0 1px $staffAlphaSuper;
+            background: $darkAlphaDarker !important;
+
+            .buttons {
+                .positive {
+                    background: $staffAlphaSuper !important;
+                }
+
+                .negative {
+                    background: $darkAlphaSuper !important;
+                }
+            }
+        }
+    }
+
+    .cell {
+        background: $darkDarker !important;
+        border: 1px solid $firstAlphaSuper;
+
+        &:hover {
+            >.meta {
+                @include back-style3;
+            }
+        }
+
+        .bar {
+            background: $darkDarker !important;
+        }
+
+        .favorite {
+            background: $darkAlphaSuper !important;
+        }
+
+        .meta {
+            background: $darkDarker !important;
+
+            .divider {
+                background: #5b98d236 !important;
+            }
+
+            .join {
+                background: transparent !important;
+                box-shadow: inset 0 0 0 1px $staffAlphaSuper;
+                color: $staffAlpha !important;
+                border-radius: 25px;
+
+                &:hover {
+                    box-shadow: inset 0 0 0 1px $staff;
                 }
             }
 
-            .bar {
-                background: $darkDarker;
-            }
-
-            .favorite {
-                background: $darkAlphaSuper;
-            }
-
-            .meta {
-                background: $darkDarker;
-
-                .divider {
-                    background: #5b98d236;
-                }
-
-                .join {
-                    background: transparent !important;
-                    box-shadow: inset 0 0 0 1px $staffAlphaSuper;
-                    color: $staffAlpha !important;
-                    border-radius: 25px;
-
-                    &:hover {
-                        box-shadow: inset 0 0 0 1px $staff;
-                    }
-                }
-
-                .room {
-                    color: $staff;
-                    text-shadow: 0 0 5px #000;
-                }
+            .room {
+                color: $staff !important;
+                text-shadow: 0 0 5px #000;
             }
         }
     }
@@ -172,6 +209,12 @@ $blackAlphaDark: rgba($black, .8);
 #user-view {
     background: linear-gradient(0deg, $black, $dark);
 
+    .search-box {
+        .search {
+            @include input(true, false);
+        }
+    }
+
     #the-user-profile {
         .points .pp .pp-points {
             background-color: $staff;
@@ -182,11 +225,23 @@ $blackAlphaDark: rgba($black, .8);
                 background-color: transparent !important;
                 box-shadow: inset 0 0 0 1px $firstAlphaSuper !important;
 
-                &.focused {
-                    &+input {
-                        background: $darkAlphaDarker;
-                        box-shadow: inset 0 0 0 1px $highlight !important;
-                    }
+                &+input {
+                    background: $darkAlphaDarker;
+                    box-shadow: inset 0 0 0 1px $highlight !important;
+                }
+            }
+
+            .arrow-up {
+                border-bottom-color: rgb(16, 24, 32);
+
+                &:after {
+                    content: "";
+                    border: 7px solid transparent;
+                    border-bottom-color: $firstAlphaSuper;
+                    position: absolute;
+                    top: -8px;
+                    left: -7px;
+                    z-index: -1;
                 }
             }
         }
@@ -356,12 +411,18 @@ $blackAlphaDark: rgba($black, .8);
             background: $highlightAlphaSuper !important;
         }
     }
+
+    .badge-box {
+        box-shadow: inset 0 0 0 1px $firstAlpha;
+    }
 }
+
+#toast-notifications {}
 
 #user-rollover {
     @include back-style1;
 
-    &.expand.chat {
+    &.chat {
         .arrow-down {
             border-left-color: rgba(0, 0, 0, .83) !important;
 
@@ -379,48 +440,8 @@ $blackAlphaDark: rgba($black, .8);
         }
     }
 
-    &.id-5394376 .badge-box {
-
-        // BOT
-        &:before {
-            top: -30px;
-            content: "Engenheiro";
-            color: #c7c7c7;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            position: absolute;
-            padding-left: 25px;
-            font-size: 13px;
-            background-image: url(images/gear.png);
-            background-size: 20px 20px;
-            background-repeat: no-repeat;
-        }
-    }
-
-    &.id-3839549 .badge-box {
-
-        // FELUZ
-        &:before {
-            top: -30px;
-            content: "Diamond junior";
-            color: #18bdf6;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            position: absolute;
-            padding-left: 25px;
-            font-size: 13px;
-            background-image: url(images/diamond.png);
-            background-size: 20px 20px;
-            background-repeat: no-repeat;
-        }
-    }
-
     &.is-staff,
-    &.is-staff.expand.chat {
+    &.is-staff.chat {
         border-color: $staffAlpha !important;
 
         .thumb {
@@ -431,6 +452,10 @@ $blackAlphaDark: rgba($black, .8);
             &:after {
                 border-color: $staffAlpha;
             }
+        }
+
+        .badge-box {
+            box-shadow: 0 0 0 1px $staffAlpha;
         }
     }
 
@@ -678,7 +703,7 @@ $blackAlphaDark: rgba($black, .8);
 
                     .cm {
                         overflow: hidden;
-                        animation: bounceIn .8s;
+                        animation: flipInX 1s;
                         padding: 5px 0;
 
                         &.mention {
@@ -709,6 +734,8 @@ $blackAlphaDark: rgba($black, .8);
                             }
 
                             .text {
+                                font-family: 'Open Sans';
+                                font-size: 1.2em;
                                 border: 1px dashed $staffAlpha;
                                 padding: 10px;
                                 color: $staffAlpha;
@@ -767,6 +794,10 @@ $blackAlphaDark: rgba($black, .8);
                             .un {
                                 text-shadow: 0 1px #000, 0 -1px #000, 1px 0 #000, -1px 0 #000;
                             }
+                        }
+
+                        .timestamp {
+                            color: #cce3ff8c;
                         }
                     }
                 }
@@ -878,10 +909,10 @@ $blackAlphaDark: rgba($black, .8);
     flex-direction: row-reverse;
 }
 
+/* Items bottom custom 
 ul.list-unstyled .community__player-item:not(.volume) {
     margin-top: 20px;
-}
-
+}*/
 .community__playback-meta--desktop {
     top: 0;
     position: fixed;
@@ -911,9 +942,37 @@ ul.list-unstyled .community__player-item:not(.volume) {
 }
 
 li.community__player-item.volume {
-    top: 7px;
-    margin-left: 10px;
-    position: absolute;
+    top: 5px;
+    margin-left: -200px;
+    position: fixed;
+}
+
+/* -------------- coloca icone disco girando ------------------*/
+.activate-button i {
+    width: 20px;
+    height: 20px;
+}
+
+#playlist-activate-button i {
+    width: 18px;
+    height: 18px;
+    top: 0px !important;
+}
+
+.icon-playlist.active {
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    width: 20px;
+    height: 20px;
+}
+
+.icon-playlist {
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    width: 30px;
+    height: 30px
 }
 
 // Always import here
@@ -939,6 +998,10 @@ li.community__player-item.volume {
 @media (min-width: 1440px) {
     #chat-messages {
         font-size: 14px;
+    }
+
+    li.community__player-item.volume {
+        margin-left: -230px;
     }
 }
 
