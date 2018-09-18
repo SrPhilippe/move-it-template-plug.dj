@@ -417,7 +417,15 @@ $blackAlphaDark: rgba($black, .8);
     }
 }
 
-#toast-notifications {}
+#toast-notifications {
+    .left {
+        background: $blackAlphaDark !important;
+    }
+
+    .right {
+        @include back-style1;
+    }
+}
 
 #user-rollover {
     @include back-style1;
@@ -664,17 +672,72 @@ $blackAlphaDark: rgba($black, .8);
                 }
             }
 
+            #rcs-menu {
+                .rsrow {
+                    &:hover {
+                        @include back-staff;
+                    }
+                }
+            }
+
             .friends {
                 background: transparent;
 
                 .input-background {
                     @include input(false, true);
                 }
+
+                .row:not(.is-offline) {
+                    &:hover {
+                        @include back-staff;
+                    }
+                }
             }
 
             #user-lists {
                 .input-background {
                     @include input(false, true);
+                }
+
+                .list {
+                    .user {
+                        &:hover {
+                            @include back-staff;
+                        }
+                    }
+                }
+
+                .button {
+                    &.selected {
+                        border-bottom: 2px solid $staff !important;
+                    }
+                }
+            }
+
+            #waitlist {
+                .friends {
+                    &.has-requests {
+                        .header {
+                            transition: .4s ease-out;
+                            background: linear-gradient(310deg, hsla(111, 73%, 30%, 0.33), hsla(97, 100%, 50%, 0.1));
+                            box-shadow: inset 0 2px rgba(0, 255, 0, .5),
+                                inset 0 -2px rgba(0, 255, 0, .5);
+
+                            &:hover {
+                                box-shadow: inset 0 5px rgba(0, 255, 0, .5),
+                                    inset 0 -5px rgba(0, 255, 0, .5);
+                            }
+                        }
+                    }
+                }
+
+                .list {
+                    .user {
+                        &:hover {
+                            @include back-staff;
+                            border-bottom-color: $staffAlpha;
+                        }
+                    }
                 }
             }
 
@@ -938,6 +1001,11 @@ ul.list-unstyled .community__player-item:not(.volume) {
 
     .community__playing-bottom-container {
         padding: 7px 10px 10px 10px;
+        width: 100%;
+    }
+
+    .community__song-playing {
+        width: calc(100% - 40px);
     }
 }
 

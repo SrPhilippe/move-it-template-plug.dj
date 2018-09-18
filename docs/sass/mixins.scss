@@ -4,12 +4,16 @@
 }
 
 @mixin back-style2 {
-    background: linear-gradient(300deg, $darkAlpha, #000);
+    background: linear-gradient(300deg, $darkAlpha, #000) !important;
 }
 
 @mixin back-style3 {
     background: radial-gradient($blackAlphaDark 40%, $firstAlpha 249%) !important;
     border: 1px solid $firstAlpha;
+}
+
+@mixin back-staff {
+    background: linear-gradient(to right, $staffAlphaSuper, transparent) !important;
 }
 
 @mixin input($focused, $rounded) {
