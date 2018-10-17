@@ -99,4 +99,24 @@
             background-repeat: no-repeat;
         }
     }
+
+    // Eduarda Correa
+    &.id-5401598 .badge-box {
+        &:before {
+            top: -30px;
+            content: "Artist";
+            // color: #37dcffd1;
+            color: #dd1fc9;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            padding-left: 25px;
+            font-size: 13px;
+            background-image: url(images/ps-pink.png);
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+        }
+    }
 }

@@ -17,6 +17,7 @@
 }
 
 @mixin input($focused, $rounded) {
+    transition: all .4s ease-out;
     background-color: transparent !important;
     box-shadow: inset 0 0 0 1px $firstAlphaSuper !important;
 

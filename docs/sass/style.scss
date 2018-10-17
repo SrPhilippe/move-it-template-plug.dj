@@ -6,6 +6,10 @@ Started in: 8/23/2018
 */
 @import "mixins";
 @import "users";
+
+// OLD STAFF COLOR #9147ff
+// NEW STAFF COLOR #db7a20
+
 $highlight: #e3ad16;
 $highlightAlpha: hsla(44, 82%, 49%, 0.851);
 $highlightAlphaSuper: hsla(44, 82%, 49%, 0.267);
@@ -89,20 +93,62 @@ $blackAlphaDark: rgba($black, .8);
     background: $darkAlpha !important;
 }
 
-.plugdjfont {
-    .icon-playlist {
-        color: $highlight;
-    }
-}
 
 #dashboard {
     @include back-style2;
 
+    #dashboard-search {
+        @include input(false, true);
+    }
+
+    .search__box {
+        .dashboard__title .number {
+            color: $staff;
+        }
+
+        .dropdown2 {
+            .text-container {
+                @include back-style3;
+            }
+
+            .button {
+                background-color: $firstDarker;
+            }
+
+            .dropdown2-menu {
+                @include back-style3;
+            }
+        }
+    }
+
     .search {
+        // DELETABLE?
         @include input(true, true);
     }
 
+    .genres__menu-content {
+        border-color: $firstAlpha;
+
+        .genres__menu {
+            .genre {
+                &:hover {
+                    color: $staff;
+                }
+
+                &.active {
+                    color: $staff;
+                }
+            }
+        }
+    }
+
+    .dashboard__communities_panel {
+        @include back-style1;
+    }
+
     .tab-menu {
+
+        // DELETABLE?
         button.selected {
             border-color: $staff !important;
         }
@@ -149,6 +195,16 @@ $blackAlphaDark: rgba($black, .8);
         &:hover {
             >.meta {
                 @include back-style3;
+            }
+        }
+
+        .community-box__overlay {
+            @include back-style3;
+
+            p,
+            a,
+            i {
+                color: $staffAlpha !important;
             }
         }
 
@@ -329,6 +385,27 @@ $blackAlphaDark: rgba($black, .8);
 
 #playlist-panel {
     @include back-style2;
+#search-suggestion {
+    .query {
+        color: $staff !important;
+    }
+}
+    #media-panel {
+        .actions {
+            @include back-style2;
+            transition: box-shadow .4s ease-out;
+            border-radius: 10px;
+            box-shadow: inset 0 0 0 1px $staffAlphaSuper;
+            &:hover {
+                box-shadow: inset 0 0 0 3px $staffAlpha;
+            }
+            .action {
+                &:hover {
+                    color: $staff !important;
+                }
+            }
+        }
+    }
 
     #search {
 
@@ -345,6 +422,17 @@ $blackAlphaDark: rgba($black, .8);
         }
     }
 
+    #playlist-activate-button {
+        &.active {
+            border-color: $staff !important;
+
+            .icon-playlist,
+            >span {
+                color: $staff !important;
+            }
+        }
+    }
+
     #playlist-menu {
         @include back-style1;
 
@@ -356,7 +444,7 @@ $blackAlphaDark: rgba($black, .8);
 
                 .activate-button {
                     .icon-playlist.active {
-                        color: $first;
+                        color: $staff !important;
                     }
                 }
             }
@@ -1070,6 +1158,10 @@ li.community__player-item.volume {
 
     li.community__player-item.volume {
         margin-left: -230px;
+    }
+
+    .community__playback-meta--desktop:after {
+        margin-left: 39vw;
     }
 }
 
